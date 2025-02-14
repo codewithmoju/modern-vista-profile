@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -54,10 +53,10 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         theme: {
-          "dark-bg": "#0A0A0A",
-          "dark-surface": "#121212",
-          accent1: "#6E56CF",
-          accent2: "#3FCBD7",
+          "dark-bg": "#0f1729",
+          "dark-surface": "#1a1f2e",
+          accent1: "#8B5CF6",
+          accent2: "#0EA5E9",
         },
       },
       keyframes: {

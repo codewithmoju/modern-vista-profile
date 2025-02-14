@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -44,16 +44,22 @@
     @apply border-border;
   }
   body {
-    @apply bg-theme-dark-bg text-foreground font-['Inter'];
+    @apply bg-theme-dark-bg text-foreground font-['Poppins'];
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-['Space_Grotesk'];
   }
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #0A0A0A 0%, #121212 100%);
+  background: linear-gradient(225deg, #0f1729 0%, #1a1f2e 100%),
+    radial-gradient(circle at top left, rgba(139, 92, 246, 0.15), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.15), transparent 30%);
+  background-blend-mode: screen;
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #6E56CF 0%, #3FCBD7 100%);
+  background: linear-gradient(90deg, #8B5CF6 0%, #0EA5E9 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -66,4 +72,8 @@
 .card-hover:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-gradient {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(14, 165, 233, 0.1) 100%);
 }
