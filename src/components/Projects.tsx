@@ -1,7 +1,5 @@
-
 import { motion } from "framer-motion";
 import { Github, ExternalLink, FileText } from "lucide-react";
-
 const Projects = () => {
   const projects = [{
     title: "Food Delivery App",
@@ -36,7 +34,6 @@ const Projects = () => {
     codeLink: "https://github.com/MuhammadMoaiz001/weather-app",
     caseStudyLink: "#"
   }];
-
   return <section id="projects" className="py-20 gradient-bg">
       <div className="container mx-auto px-4">
         <motion.h2 initial={{
@@ -84,18 +81,9 @@ const Projects = () => {
                 
                 {/* Project Links */}
                 <div className="flex gap-3">
-                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="text-white bg-theme-accent1 hover:bg-theme-accent1/80 py-1.5 px-3 rounded flex items-center gap-1 text-xs">
-                    <ExternalLink size={14} />
-                    Live Demo
-                  </a>
-                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="text-white bg-gray-700 hover:bg-gray-600 py-1.5 px-3 rounded flex items-center gap-1 text-xs">
-                    <Github size={14} />
-                    Source Code
-                  </a>
-                  <a href={project.caseStudyLink} target="_blank" rel="noopener noreferrer" className="text-white bg-gray-700 hover:bg-gray-600 py-1.5 px-3 rounded flex items-center gap-1 text-xs">
-                    <FileText size={14} />
-                    Case Study
-                  </a>
+                  
+                  
+                  
                 </div>
               </div>
             </motion.div>)}
@@ -103,5 +91,4 @@ const Projects = () => {
       </div>
     </section>;
 };
-
 export default Projects;
