@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -55,9 +56,13 @@ export default {
         theme: {
           "dark-bg": "#0f1729",
           "dark-surface": "#1a1f2e",
-          accent1: "#8B5CF6",
-          accent2: "#0EA5E9",
+          accent1: "#8B5CF6", // Purple
+          accent2: "#0EA5E9", // Blue
         },
+      },
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+        display: ['Space Grotesk', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
@@ -77,6 +82,9 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         fadeIn: "fadeIn 0.5s ease-out forwards",
+      },
+      backgroundImage: {
+        'hero-pattern': "url('/bg-pattern.svg')",
       },
     },
   },

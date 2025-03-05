@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, Code } from "lucide-react";
 
 const Projects = () => {
   const projects = [
@@ -13,6 +13,9 @@ const Projects = () => {
         "Optimized navigation and added animations for an intuitive user experience",
       ],
       tags: ["React Native", "Firebase", "Animation"],
+      imageUrl: "/project-food-delivery.jpg",
+      liveLink: "#",
+      codeLink: "#",
     },
     {
       title: "Personal Finance Tracker",
@@ -23,6 +26,9 @@ const Projects = () => {
         "Visualized data with charts for better user insights",
       ],
       tags: ["React Native", "Firebase", "Charts"],
+      imageUrl: "/project-finance.jpg",
+      liveLink: "#",
+      codeLink: "#",
     },
     {
       title: "Wallpaper App",
@@ -33,6 +39,9 @@ const Projects = () => {
         "Designed a responsive UI for seamless performance across devices",
       ],
       tags: ["React Native", "API Integration", "UI/UX"],
+      imageUrl: "/project-wallpaper.jpg",
+      liveLink: "#",
+      codeLink: "#",
     },
     {
       title: "Weather Forecasting App",
@@ -43,6 +52,9 @@ const Projects = () => {
         "Enhanced user experience with smooth animations and responsive UI",
       ],
       tags: ["React Native", "API Integration", "Animations"],
+      imageUrl: "/project-weather.jpg",
+      liveLink: "#",
+      codeLink: "#",
     },
   ];
 
@@ -52,10 +64,17 @@ const Projects = () => {
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="text-3xl font-bold mb-12 text-center gradient-text"
+          className="text-3xl font-bold mb-4 text-center gradient-text font-display"
         >
           Projects
         </motion.h2>
+        <motion.p 
+          initial={{ opacity: 0 }} 
+          whileInView={{ opacity: 1 }}
+          className="text-gray-300 text-center max-w-2xl mx-auto mb-12"
+        >
+          Here are some of my recent projects showcasing my skills and experience as a React Native developer.
+        </motion.p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -63,13 +82,52 @@ const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-theme-dark-surface p-6 rounded-lg card-hover"
+              className="bg-theme-dark-surface p-6 rounded-lg project-card group overflow-hidden"
             >
-              <h3 className="text-xl font-semibold mb-4">{project.title}</h3>
+              <div className="relative overflow-hidden mb-6 rounded-md bg-theme-dark-bg aspect-video flex items-center justify-center">
+                {project.imageUrl ? (
+                  <img 
+                    src={project.imageUrl} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                ) : (
+                  <div className="text-6xl text-theme-accent1/20 flex items-center justify-center h-full">
+                    <Code />
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+                  <div className="flex gap-4">
+                    {project.liveLink && (
+                      <a 
+                        href={project.liveLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-theme-accent2 text-black p-2 rounded-full hover:bg-white transition-colors"
+                        aria-label="View Live Demo"
+                      >
+                        <ExternalLink size={18} />
+                      </a>
+                    )}
+                    {project.codeLink && (
+                      <a 
+                        href={project.codeLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-theme-accent1 text-white p-2 rounded-full hover:bg-white hover:text-black transition-colors"
+                        aria-label="View Source Code"
+                      >
+                        <Github size={18} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-theme-accent1 transition-colors font-display">{project.title}</h3>
               <p className="text-gray-400 mb-4">{project.description}</p>
-              <ul className="list-disc list-inside mb-4 text-gray-300">
+              <ul className="list-disc list-inside mb-4 text-gray-300 space-y-2">
                 {project.features.map((feature, i) => (
-                  <li key={i} className="mb-2">
+                  <li key={i} className="text-sm">
                     {feature}
                   </li>
                 ))}
@@ -78,7 +136,7 @@ const Projects = () => {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-theme-accent1 bg-opacity-20 text-theme-accent1 rounded-full text-sm"
+                    className="px-3 py-1 bg-theme-accent1 bg-opacity-20 text-theme-accent1 rounded-full text-xs font-medium"
                   >
                     {tag}
                   </span>

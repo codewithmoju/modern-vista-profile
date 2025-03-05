@@ -45,10 +45,55 @@ const Index = () => {
     <div className="bg-theme-dark-bg min-h-screen">
       <Header />
       <Hero />
-      <About />
-      <Projects />
-      <Experience />
-      <Contact />
+      
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <About />
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <Projects />
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <Experience />
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <Contact />
+      </motion.div>
+      
+      <footer className="py-6 bg-theme-dark-surface text-center text-gray-400 text-sm">
+        <div className="container mx-auto px-4">
+          <p>© {new Date().getFullYear()} Muhammad Moaiz. All rights reserved.</p>
+          <a 
+            href="#" 
+            className="inline-block mt-2 hover:text-theme-accent1 transition-colors"
+            aria-label="Back to top"
+          >
+            Back to top ↑
+          </a>
+        </div>
+      </footer>
     </div>
   );
 };
