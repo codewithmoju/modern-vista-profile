@@ -82,11 +82,7 @@ const Projects = () => {
                 </div>
                 
                 {/* Project Links */}
-                <div className="flex gap-3 mt-4">
-                  {project.liveLink}
-                  {project.codeLink}
-                  {project.caseStudyLink}
-                </div>
+                
               </div>
             </motion.div>)}
         </div>
