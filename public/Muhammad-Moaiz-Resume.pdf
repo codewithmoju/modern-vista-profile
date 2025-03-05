@@ -1,2 +1,5 @@
 
-// This is a placeholder. You'll need to replace this with your actual resume PDF.
+// This is a placeholder for the actual PDF file.
+// The actual PDF file needs to be uploaded to the public directory.
+// Since this is a binary file, you'll need to manually upload your resume PDF
+// to the public directory with the name "Muhammad-Moaiz-Resume.pdf".

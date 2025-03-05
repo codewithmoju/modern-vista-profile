@@ -1,60 +1,44 @@
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Code } from "lucide-react";
+import { Github, ExternalLink, FileText } from "lucide-react";
 
 const Projects = () => {
   const projects = [
     {
       title: "Food Delivery App",
       description: "A cross-platform React Native app with Firebase Authentication",
-      features: [
-        "Built with React Native and Firebase Authentication",
-        "Integrated third-party libraries for enhanced app performance",
-        "Optimized navigation and added animations for an intuitive user experience",
-      ],
-      tags: ["React Native", "Firebase", "Animation"],
+      technologies: ["React Native", "Firebase", "Redux", "Animation"],
       imageUrl: "/project-food-delivery.jpg",
-      liveLink: "#",
-      codeLink: "#",
+      liveLink: "https://fooddelivery.example.com",
+      codeLink: "https://github.com/MuhammadMoaiz001/food-delivery",
+      caseStudyLink: "#"
     },
     {
       title: "Personal Finance Tracker",
       description: "A finance management app for transaction tracking",
-      features: [
-        "Developed a finance management app enabling transaction tracking and categorization",
-        "Implemented Firebase for secure user authentication and real-time data storage",
-        "Visualized data with charts for better user insights",
-      ],
-      tags: ["React Native", "Firebase", "Charts"],
+      technologies: ["React Native", "Firebase", "Charts", "Context API"],
       imageUrl: "/project-finance.jpg",
-      liveLink: "#",
-      codeLink: "#",
+      liveLink: "https://financetracker.example.com",
+      codeLink: "https://github.com/MuhammadMoaiz001/finance-tracker",
+      caseStudyLink: "#"
     },
     {
       title: "Wallpaper App",
       description: "Browse and download high-quality wallpapers",
-      features: [
-        "Created a React Native app to browse and download high-quality wallpapers",
-        "Integrated API for fetching wallpapers and added search/filter functionality",
-        "Designed a responsive UI for seamless performance across devices",
-      ],
-      tags: ["React Native", "API Integration", "UI/UX"],
+      technologies: ["React Native", "API Integration", "UI/UX", "Redux"],
       imageUrl: "/project-wallpaper.jpg",
-      liveLink: "#",
-      codeLink: "#",
+      liveLink: "https://wallpaperapp.example.com",
+      codeLink: "https://github.com/MuhammadMoaiz001/wallpaper-app",
+      caseStudyLink: "#"
     },
     {
       title: "Weather Forecasting App",
       description: "Real-time weather updates and forecasts",
-      features: [
-        "Built a weather app with real-time updates and a 7-day forecast",
-        "Integrated API for global city search and weather data display",
-        "Enhanced user experience with smooth animations and responsive UI",
-      ],
-      tags: ["React Native", "API Integration", "Animations"],
+      technologies: ["React Native", "API Integration", "Animations", "Geolocation"],
       imageUrl: "/project-weather.jpg",
-      liveLink: "#",
-      codeLink: "#",
+      liveLink: "https://weatherapp.example.com",
+      codeLink: "https://github.com/MuhammadMoaiz001/weather-app",
+      caseStudyLink: "#"
     },
   ];
 
@@ -82,65 +66,78 @@ const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-theme-dark-surface p-6 rounded-lg shadow-md"
+              className="bg-theme-dark-surface rounded-lg shadow-lg overflow-hidden group transition-all duration-300"
             >
-              <div className="relative overflow-hidden mb-6 rounded-md bg-theme-dark-bg aspect-video flex items-center justify-center">
+              {/* Project Image */}
+              <div className="relative h-56 overflow-hidden">
                 {project.imageUrl ? (
                   <img 
                     src={project.imageUrl} 
                     alt={project.title} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 ) : (
-                  <div className="text-6xl text-theme-accent1/20 flex items-center justify-center h-full">
-                    <Code />
+                  <div className="w-full h-full bg-theme-dark-bg flex items-center justify-center">
+                    <span className="text-4xl text-theme-accent1/50">No Image</span>
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-4">
-                  <div className="flex gap-4">
-                    {project.liveLink && (
-                      <a 
-                        href={project.liveLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="bg-theme-accent2 text-black p-2 rounded-full"
-                        aria-label="View Live Demo"
+              </div>
+              
+              {/* Project Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2 font-display">{project.title}</h3>
+                <p className="text-gray-400 mb-4 text-sm">{project.description}</p>
+                
+                {/* Technologies */}
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-theme-accent1 bg-opacity-20 text-theme-accent1 rounded-full text-xs font-medium"
                       >
-                        <ExternalLink size={18} />
-                      </a>
-                    )}
-                    {project.codeLink && (
-                      <a 
-                        href={project.codeLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="bg-theme-accent1 text-white p-2 rounded-full"
-                        aria-label="View Source Code"
-                      >
-                        <Github size={18} />
-                      </a>
-                    )}
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 font-display">{project.title}</h3>
-              <p className="text-gray-400 mb-4">{project.description}</p>
-              <ul className="list-disc list-inside mb-4 text-gray-300 space-y-2">
-                {project.features.map((feature, i) => (
-                  <li key={i} className="text-sm">
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 bg-theme-accent1 bg-opacity-20 text-theme-accent1 rounded-full text-xs font-medium"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                
+                {/* Project Links */}
+                <div className="flex gap-3 mt-4">
+                  {project.liveLink && (
+                    <a 
+                      href={project.liveLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 bg-theme-accent2 text-black rounded-md text-sm font-medium transition-colors hover:bg-theme-accent2/90"
+                    >
+                      <ExternalLink size={14} />
+                      <span>Live Demo</span>
+                    </a>
+                  )}
+                  {project.codeLink && (
+                    <a 
+                      href={project.codeLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 bg-theme-accent1 bg-opacity-20 text-theme-accent1 rounded-md text-sm font-medium transition-colors hover:bg-theme-accent1/30"
+                    >
+                      <Github size={14} />
+                      <span>Source</span>
+                    </a>
+                  )}
+                  {project.caseStudyLink && (
+                    <a 
+                      href={project.caseStudyLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 bg-gray-700 text-gray-200 rounded-md text-sm font-medium transition-colors hover:bg-gray-600"
+                    >
+                      <FileText size={14} />
+                      <span>Case Study</span>
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}

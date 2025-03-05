@@ -77,8 +77,7 @@ const Hero = () => {
             </a>
             <a
               href="/Muhammad-Moaiz-Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              download="Muhammad-Moaiz-Resume.pdf"
               className="group relative inline-flex items-center justify-center px-8 py-3 font-medium bg-transparent border-2 border-gray-600 text-gray-300 rounded-lg hover:border-white hover:text-white transition-colors duration-300 ease-out w-full md:w-auto"
             >
               <span className="relative flex items-center gap-2">
