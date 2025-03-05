@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
+import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import { updatePageTitle, logPageView } from "@/utils/seo";
 
@@ -71,6 +72,15 @@ const Index = () => {
         transition={{ duration: 0.6 }}
       >
         <Experience />
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <Testimonials />
       </motion.div>
       
       <motion.div

@@ -82,28 +82,28 @@ const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-theme-dark-surface p-6 rounded-lg project-card group overflow-hidden"
+              className="bg-theme-dark-surface p-6 rounded-lg shadow-md"
             >
               <div className="relative overflow-hidden mb-6 rounded-md bg-theme-dark-bg aspect-video flex items-center justify-center">
                 {project.imageUrl ? (
                   <img 
                     src={project.imageUrl} 
                     alt={project.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover"
                   />
                 ) : (
                   <div className="text-6xl text-theme-accent1/20 flex items-center justify-center h-full">
                     <Code />
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-4">
                   <div className="flex gap-4">
                     {project.liveLink && (
                       <a 
                         href={project.liveLink} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="bg-theme-accent2 text-black p-2 rounded-full hover:bg-white transition-colors"
+                        className="bg-theme-accent2 text-black p-2 rounded-full"
                         aria-label="View Live Demo"
                       >
                         <ExternalLink size={18} />
@@ -114,7 +114,7 @@ const Projects = () => {
                         href={project.codeLink} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="bg-theme-accent1 text-white p-2 rounded-full hover:bg-white hover:text-black transition-colors"
+                        className="bg-theme-accent1 text-white p-2 rounded-full"
                         aria-label="View Source Code"
                       >
                         <Github size={18} />
@@ -123,7 +123,7 @@ const Projects = () => {
                   </div>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-theme-accent1 transition-colors font-display">{project.title}</h3>
+              <h3 className="text-xl font-semibold mb-2 font-display">{project.title}</h3>
               <p className="text-gray-400 mb-4">{project.description}</p>
               <ul className="list-disc list-inside mb-4 text-gray-300 space-y-2">
                 {project.features.map((feature, i) => (

@@ -3,6 +3,16 @@ import { motion } from "framer-motion";
 import { Code2, Smartphone, Server, Leaf, Brain, Users } from "lucide-react";
 
 const About = () => {
+  // Skills with proficiency levels
+  const technicalSkills = [
+    { name: "React Native", level: 90 },
+    { name: "JavaScript", level: 85 },
+    { name: "Firebase", level: 80 },
+    { name: "REST APIs", level: 75 },
+    { name: "React JS", level: 70 },
+    { name: "UI/UX Design", level: 65 },
+  ];
+
   const skills = [
     {
       icon: <Code2 className="w-6 h-6" />,
@@ -46,12 +56,65 @@ const About = () => {
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-3xl font-bold mb-8 text-center gradient-text">About Me</h2>
-          <div className="mb-12">
-            <p className="text-gray-300 mb-6">
-              Experienced React Native Developer skilled in creating cross-platform mobile apps using React Native, Expo,
-              REST APIs, and Firebase. Focused on building user-friendly apps with smooth performance and reliable
-              backend integration.
-            </p>
+          
+          <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="w-full md:w-1/3"
+            >
+              <div className="relative overflow-hidden rounded-lg bg-gradient-to-r from-theme-accent1/20 to-theme-accent2/20 p-2">
+                <img 
+                  src="/profile-image.png" 
+                  alt="Muhammad Moaiz" 
+                  className="w-full h-auto rounded-lg"
+                />
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="w-full md:w-2/3"
+            >
+              <h3 className="text-2xl font-semibold mb-4">My Journey</h3>
+              <p className="text-gray-300 mb-4">
+                As a React Native Developer, I've dedicated myself to mastering the art of building seamless cross-platform mobile applications. My journey began with a passion for creating user-friendly interfaces and has evolved into a comprehensive skill set encompassing frontend development, backend integration, and performance optimization.
+              </p>
+              <p className="text-gray-300">
+                Currently pursuing a BSc in Software Engineering at Minhaj University Lahore, I combine academic knowledge with hands-on experience to deliver high-quality mobile solutions. I'm constantly exploring new technologies and methodologies to enhance my development capabilities and create applications that not only meet but exceed client expectations.
+              </p>
+            </motion.div>
+          </div>
+
+          <div className="mb-16">
+            <h3 className="text-2xl font-semibold mb-6 text-center">Technical Proficiency</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {technicalSkills.map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-theme-dark-bg p-4 rounded-lg"
+                >
+                  <div className="flex justify-between mb-2">
+                    <span className="font-medium text-gray-200">{skill.name}</span>
+                    <span className="text-gray-400">{skill.level}%</span>
+                  </div>
+                  <div className="w-full bg-gray-700 rounded-full h-2.5">
+                    <motion.div 
+                      className="bg-gradient-to-r from-theme-accent1 to-theme-accent2 h-2.5 rounded-full"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      transition={{ duration: 1, delay: index * 0.1 }}
+                    ></motion.div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -61,7 +124,7 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 bg-theme-dark-bg rounded-lg card-hover"
+                className="p-6 bg-theme-dark-bg rounded-lg"
               >
                 <div className="text-theme-accent1 mb-4">{skill.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{skill.title}</h3>

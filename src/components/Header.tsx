@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
+import { Github, Linkedin, Mail, Menu, X, Twitter } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,8 +24,7 @@ const Header = () => {
           className="text-xl md:text-2xl font-bold gradient-text font-display"
         >
           <a href="#" className="flex items-center gap-2">
-            <span className="text-2xl md:text-3xl">MM</span>
-            <span className="hidden sm:inline">Muhammad Moaiz</span>
+            <span className="text-2xl md:text-3xl font-display">Muhammad Moaiz</span>
           </a>
         </motion.div>
 
@@ -64,6 +63,15 @@ const Header = () => {
             aria-label="GitHub Profile"
           >
             <Github size={20} />
+          </a>
+          <a
+            href="https://twitter.com/M_Moaiz001"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white transition-colors hover:scale-110 duration-300"
+            aria-label="X (Twitter) Profile"
+          >
+            <Twitter size={20} />
           </a>
           <a
             href="https://www.linkedin.com/in/muhammadmoaiz"
@@ -113,6 +121,15 @@ const Header = () => {
                   aria-label="GitHub Profile"
                 >
                   <Github size={24} />
+                </a>
+                <a
+                  href="https://twitter.com/M_Moaiz001"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="X (Twitter) Profile"
+                >
+                  <Twitter size={24} />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/muhammadmoaiz"
