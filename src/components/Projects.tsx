@@ -6,33 +6,21 @@ const Projects = () => {
     description: "A cross-platform React Native app with Firebase Authentication",
     technologies: ["React Native", "Firebase", "Redux", "Animation"],
     imageUrl: "/project-food-delivery.jpg",
-    liveLink: "https://fooddelivery.example.com",
-    codeLink: "https://github.com/MuhammadMoaiz001/food-delivery",
-    caseStudyLink: "#"
   }, {
     title: "Personal Finance Tracker",
     description: "A finance management app for transaction tracking",
     technologies: ["React Native", "Firebase", "Charts", "Context API"],
-    imageUrl: "/project-finance.jpg",
-    liveLink: "https://financetracker.example.com",
-    codeLink: "https://github.com/MuhammadMoaiz001/finance-tracker",
-    caseStudyLink: "#"
+    imageUrl: "/project-finance.png",
   }, {
     title: "Wallpaper App",
     description: "Browse and download high-quality wallpapers",
     technologies: ["React Native", "API Integration", "UI/UX", "Redux"],
-    imageUrl: "/project-wallpaper.jpg",
-    liveLink: "https://wallpaperapp.example.com",
-    codeLink: "https://github.com/MuhammadMoaiz001/wallpaper-app",
-    caseStudyLink: "#"
+    imageUrl: "/project-wallpaper.png",
   }, {
     title: "Weather Forecasting App",
     description: "Real-time weather updates and forecasts",
     technologies: ["React Native", "API Integration", "Animations", "Geolocation"],
-    imageUrl: "/project-weather.jpg",
-    liveLink: "https://weatherapp.example.com",
-    codeLink: "https://github.com/MuhammadMoaiz001/weather-app",
-    caseStudyLink: "#"
+    imageUrl: "/project-weather.jpeg",
   }];
   return <section id="projects" className="py-20 gradient-bg">
       <div className="container mx-auto px-4">
@@ -79,8 +67,6 @@ const Projects = () => {
                   </div>
                 </div>
                 
-                {/* Project Links */}
-                <div className="flex gap-3">
                   
                   
                   
