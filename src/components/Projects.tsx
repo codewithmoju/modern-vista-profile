@@ -1,5 +1,7 @@
+
 import { motion } from "framer-motion";
 import { Github, ExternalLink, FileText } from "lucide-react";
+
 const Projects = () => {
   const projects = [{
     title: "Food Delivery App",
@@ -34,6 +36,7 @@ const Projects = () => {
     codeLink: "https://github.com/MuhammadMoaiz001/weather-app",
     caseStudyLink: "#"
   }];
+
   return <section id="projects" className="py-20 gradient-bg">
       <div className="container mx-auto px-4">
         <motion.h2 initial={{
@@ -62,9 +65,7 @@ const Projects = () => {
         }} className="bg-theme-dark-surface rounded-lg shadow-lg overflow-hidden group transition-all duration-300">
               {/* Project Image */}
               <div className="relative h-56 overflow-hidden">
-                {project.imageUrl ? <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" /> : <div className="w-full h-full bg-theme-dark-bg flex items-center justify-center">
-                    <span className="text-4xl text-theme-accent1/50">No Image</span>
-                  </div>}
+                <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
               </div>
               
               {/* Project Content */}
@@ -82,11 +83,25 @@ const Projects = () => {
                 </div>
                 
                 {/* Project Links */}
-                
+                <div className="flex gap-3">
+                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="text-white bg-theme-accent1 hover:bg-theme-accent1/80 py-1.5 px-3 rounded flex items-center gap-1 text-xs">
+                    <ExternalLink size={14} />
+                    Live Demo
+                  </a>
+                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="text-white bg-gray-700 hover:bg-gray-600 py-1.5 px-3 rounded flex items-center gap-1 text-xs">
+                    <Github size={14} />
+                    Source Code
+                  </a>
+                  <a href={project.caseStudyLink} target="_blank" rel="noopener noreferrer" className="text-white bg-gray-700 hover:bg-gray-600 py-1.5 px-3 rounded flex items-center gap-1 text-xs">
+                    <FileText size={14} />
+                    Case Study
+                  </a>
+                </div>
               </div>
             </motion.div>)}
         </div>
       </div>
     </section>;
 };
+
 export default Projects;
