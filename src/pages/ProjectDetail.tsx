@@ -179,7 +179,7 @@ const projectsData = {
     tagline: "Personalized Learning Powered by AI",
     description: "AI-driven educational app that personalizes learning experiences.",
     fullDescription: "EduMate AI revolutionizes education by delivering personalized learning experiences driven by artificial intelligence. The app adapts to each student's learning style, pace, and preferences, creating custom study plans and interactive lessons that optimize knowledge retention and skill development.",
-    coverImage: "/placeholder.svg",
+    coverImage: "/lovable-uploads/07331ae1-46f9-43f4-b002-e023eb4c5678.png",
     features: [
       {
         title: "Adaptive Learning Paths",
@@ -290,9 +290,6 @@ const ProjectDetail = () => {
               </p>
               <div className="flex gap-4">
                 <button className={`px-6 py-3 rounded-lg font-medium bg-gradient-to-r ${project.primaryColor} text-white`}>
-                  Download App
-                </button>
-                <button className="px-6 py-3 rounded-lg font-medium bg-gray-800 text-white hover:bg-gray-700 transition-colors">
                   Learn More
                 </button>
               </div>
@@ -345,30 +342,6 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* Interactive Demo Section */}
-      <section className="py-16 bg-theme-dark-bg">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="text-3xl font-bold text-white font-display mb-4">See It In Action</h2>
-              <p className="text-gray-300 mb-8">
-                Explore {project.name} with our interactive demonstration
-              </p>
-              
-              <div className={`aspect-video rounded-xl overflow-hidden border-4 ${project.darkColor} border-opacity-50 shadow-2xl`}>
-                <div className="bg-gray-800 w-full h-full flex items-center justify-center">
-                  <p className="text-gray-400">Interactive demo would appear here</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      
       {/* Testimonials Section */}
       <section className="py-16 bg-theme-dark-surface">
         <div className="container mx-auto px-4">
@@ -422,7 +395,7 @@ const ProjectDetail = () => {
               Join thousands of satisfied users and discover why {project.name} is the preferred choice.
             </p>
             <button className="px-8 py-4 bg-white text-gray-900 rounded-lg font-bold hover:bg-opacity-90 transition-colors">
-              Download Now
+              Learn More
             </button>
           </motion.div>
         </div>

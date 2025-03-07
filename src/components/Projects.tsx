@@ -37,7 +37,7 @@ const Projects = () => {
       title: "EduMate AI",
       description: "AI-driven educational app that personalizes learning experiences",
       technologies: ["React Native", "Machine Learning", "API Integration", "Firebase"],
-      imageUrl: "/placeholder.svg",
+      imageUrl: "/lovable-uploads/07331ae1-46f9-43f4-b002-e023eb4c5678.png",
       slug: "edumate-ai"
     }
   ];
