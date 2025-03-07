@@ -1,6 +1,8 @@
+
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
 import { Link } from "react-router-dom";
+
 const Projects = () => {
   const projects = [{
     title: "NemoDelivers",
@@ -33,35 +35,42 @@ const Projects = () => {
     imageUrl: "/lovable-uploads/07331ae1-46f9-43f4-b002-e023eb4c5678.png",
     slug: "edumate-ai"
   }];
-  return <section id="projects" className="py-20 gradient-bg">
+
+  return (
+    <section id="projects" className="py-20 gradient-bg">
       <div className="container mx-auto px-4">
-        <motion.h2 initial={{
-        opacity: 0
-      }} whileInView={{
-        opacity: 1
-      }} className="text-3xl font-bold mb-4 text-center gradient-text font-display">
+        <motion.h2 
+          initial={{ opacity: 0 }} 
+          whileInView={{ opacity: 1 }}
+          className="text-3xl font-bold mb-4 text-center gradient-text font-display"
+        >
           Projects
         </motion.h2>
-        <motion.p initial={{
-        opacity: 0
-      }} whileInView={{
-        opacity: 1
-      }} className="text-gray-300 text-center max-w-2xl mx-auto mb-12">
+        <motion.p 
+          initial={{ opacity: 0 }} 
+          whileInView={{ opacity: 1 }}
+          className="text-gray-300 text-center max-w-2xl mx-auto mb-12"
+        >
           Here are some of my recent projects showcasing my skills and experience as a React Native developer.
         </motion.p>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => <motion.div key={project.title} initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          delay: index * 0.1
-        }} className="bg-theme-dark-surface rounded-lg shadow-lg overflow-hidden group transition-all duration-300">
+          {projects.map((project, index) => (
+            <motion.div 
+              key={project.title} 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-theme-dark-surface rounded-lg shadow-lg overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+            >
               {/* Project Image */}
               <div className="relative h-56 overflow-hidden">
-                <img src={project.imageUrl} alt={project.title} className="w-full h-full object-fill" />
+                <img 
+                  src={project.imageUrl} 
+                  alt={project.title} 
+                  className="w-full h-full object-fill transition-transform duration-700 group-hover:scale-110" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               
               {/* Project Content */}
@@ -72,23 +81,34 @@ const Projects = () => {
                 {/* Technologies */}
                 <div className="mb-4">
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies.map(tech => <span key={tech} className="px-3 py-1 bg-theme-accent1 bg-opacity-20 text-theme-accent1 rounded-full text-xs font-medium">
+                    {project.technologies.map(tech => (
+                      <span 
+                        key={tech} 
+                        className="px-3 py-1 bg-theme-accent1 bg-opacity-20 text-theme-accent1 rounded-full text-xs font-medium"
+                      >
                         {tech}
-                      </span>)}
+                      </span>
+                    ))}
                   </div>
                 </div>
                 
                 {/* Project Links */}
                 <div className="flex mt-4">
-                  <Link to={`/project/${project.slug}`} className="flex items-center text-theme-accent1 hover:text-theme-accent2 transition-colors">
+                  <Link 
+                    to={`/project/${project.slug}`}
+                    className="flex items-center text-theme-accent1 hover:text-theme-accent2 transition-colors"
+                  >
                     <FileText className="w-4 h-4 mr-1" />
                     <span className="text-sm">View Details</span>
                   </Link>
                 </div>
               </div>
-            </motion.div>)}
+            </motion.div>
+          ))}
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Projects;

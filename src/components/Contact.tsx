@@ -11,14 +11,53 @@ const Contact = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    
+    // Clear error when user types
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: "" }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      toast({
+        title: "Form validation failed",
+        description: "Please correct the errors in the form.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     
     try {
@@ -71,19 +110,19 @@ ${formData.message}
             className="space-y-6"
           >
             <h3 className="text-2xl font-semibold mb-4">Contact Information</h3>
-            <div className="flex items-center space-x-4 text-gray-300">
+            <div className="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors transform hover:translate-x-1 duration-300">
               <Mail className="w-5 h-5 text-theme-accent1" aria-hidden="true" />
               <a href="mailto:muhammadmoaimrmr786@gmail.com" className="hover:text-theme-accent1 transition-colors">
                 muhammadmoaimrmr786@gmail.com
               </a>
             </div>
-            <div className="flex items-center space-x-4 text-gray-300">
+            <div className="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors transform hover:translate-x-1 duration-300">
               <Phone className="w-5 h-5 text-theme-accent1" aria-hidden="true" />
               <a href="tel:+923019684007" className="hover:text-theme-accent1 transition-colors">
                 +92 301 9684007
               </a>
             </div>
-            <div className="flex items-center space-x-4 text-gray-300">
+            <div className="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors transform hover:translate-x-1 duration-300">
               <MapPin className="w-5 h-5 text-theme-accent1" aria-hidden="true" />
               <span>Lahore, Pakistan</span>
             </div>
@@ -95,7 +134,7 @@ ${formData.message}
                   href="https://github.com/MuhammadMoaiz001"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-full bg-theme-dark-bg"
+                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-full bg-theme-dark-bg hover:bg-theme-accent1/20 transform hover:scale-110 duration-300"
                   aria-label="GitHub"
                 >
                   <svg
@@ -116,7 +155,7 @@ ${formData.message}
                   href="https://twitter.com/M_Moaiz001"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-full bg-theme-dark-bg"
+                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-full bg-theme-dark-bg hover:bg-theme-accent1/20 transform hover:scale-110 duration-300"
                   aria-label="X (Twitter)"
                 >
                   <svg
@@ -137,7 +176,7 @@ ${formData.message}
                   href="https://www.linkedin.com/in/muhammadmoaiz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-full bg-theme-dark-bg"
+                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-full bg-theme-dark-bg hover:bg-theme-accent1/20 transform hover:scale-110 duration-300"
                   aria-label="LinkedIn"
                 >
                   <svg
@@ -168,46 +207,49 @@ ${formData.message}
             aria-label="Contact form"
           >
             <div>
-              <label htmlFor="name" className="sr-only">Your Name</label>
+              <label htmlFor="name" className="text-sm text-gray-300 mb-1 block">Your Name</label>
               <input 
                 type="text" 
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your Name" 
+                placeholder="John Doe" 
                 required
-                className="w-full p-3 rounded-lg bg-theme-dark-surface border border-gray-700 focus:border-theme-accent1 focus:outline-none text-gray-300" 
+                className={`w-full p-3 rounded-lg bg-theme-dark-surface border ${errors.name ? 'border-red-500' : 'border-gray-700'} focus:border-theme-accent1 focus:outline-none text-gray-300 transition-all duration-300`}
                 aria-required="true"
               />
+              {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
             </div>
             <div>
-              <label htmlFor="email" className="sr-only">Your Email</label>
+              <label htmlFor="email" className="text-sm text-gray-300 mb-1 block">Your Email</label>
               <input 
                 type="email" 
                 id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Your Email" 
+                placeholder="john@example.com" 
                 required
-                className="w-full p-3 rounded-lg bg-theme-dark-surface border border-gray-700 focus:border-theme-accent1 focus:outline-none text-gray-300" 
+                className={`w-full p-3 rounded-lg bg-theme-dark-surface border ${errors.email ? 'border-red-500' : 'border-gray-700'} focus:border-theme-accent1 focus:outline-none text-gray-300 transition-all duration-300`}
                 aria-required="true"
               />
+              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
             </div>
             <div>
-              <label htmlFor="message" className="sr-only">Your Message</label>
+              <label htmlFor="message" className="text-sm text-gray-300 mb-1 block">Your Message</label>
               <textarea 
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Your Message" 
+                placeholder="Hello! I'd like to discuss a project..." 
                 rows={4} 
                 required
-                className="w-full p-3 rounded-lg bg-theme-dark-surface border border-gray-700 focus:border-theme-accent1 focus:outline-none text-gray-300"
+                className={`w-full p-3 rounded-lg bg-theme-dark-surface border ${errors.message ? 'border-red-500' : 'border-gray-700'} focus:border-theme-accent1 focus:outline-none text-gray-300 transition-all duration-300`}
                 aria-required="true"
               ></textarea>
+              {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
             </div>
             <div className="text-sm text-gray-400 mb-4">
               <p>Clicking "Send Message" will open your default email client with your message pre-filled.</p>
@@ -215,7 +257,7 @@ ${formData.message}
             <button 
               type="submit" 
               disabled={isSubmitting}
-              className="flex items-center justify-center space-x-2 w-full bg-theme-accent1 hover:bg-opacity-90 text-white px-6 py-3 rounded-lg transition-all disabled:opacity-70"
+              className="flex items-center justify-center space-x-2 w-full bg-theme-accent1 hover:bg-opacity-90 text-white px-6 py-3 rounded-lg transition-all disabled:opacity-70 hover:shadow-lg transform hover:scale-[1.02] duration-300"
               aria-label="Send message"
             >
               <span>{isSubmitting ? "Opening Email Client..." : "Send Message"}</span>

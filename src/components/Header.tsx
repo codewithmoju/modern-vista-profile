@@ -1,10 +1,21 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Menu, X, Twitter } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  // Handle scroll position for header styling
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -14,7 +25,11 @@ const Header = () => {
     <motion.header
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-theme-dark-surface/80 backdrop-blur-lg"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrollPosition > 50 
+          ? "bg-theme-dark-surface/90 backdrop-blur-lg shadow-lg" 
+          : "bg-theme-dark-surface/80 backdrop-blur-sm"
+      }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <motion.div

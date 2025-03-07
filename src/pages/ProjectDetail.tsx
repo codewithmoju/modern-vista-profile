@@ -226,6 +226,12 @@ const ProjectDetail = () => {
     // Get project data based on slug
     if (slug && projectsData[slug as keyof typeof projectsData]) {
       setProject(projectsData[slug as keyof typeof projectsData]);
+      
+      // Update document title when project loads
+      document.title = `${projectsData[slug as keyof typeof projectsData].name} | Muhammad Moaiz Portfolio`;
+      
+      // Scroll to top when navigating to project details
+      window.scrollTo(0, 0);
     }
   }, [slug]);
 
@@ -244,11 +250,14 @@ const ProjectDetail = () => {
 
   return (
     <div className="bg-theme-dark-bg min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section with Parallax */}
       <div className={`bg-gradient-to-r ${project.primaryColor} relative`}>
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <div className="container mx-auto px-4 py-24 relative z-10">
-          <Link to="/" className="inline-flex items-center text-white mb-8 hover:text-gray-200 transition-colors">
+          <Link 
+            to="/" 
+            className="inline-flex items-center text-white mb-8 hover:text-gray-200 transition-colors hover:translate-x-[-5px] transform duration-200"
+          >
             <ArrowLeft className="mr-2 h-5 w-5" />
             Back to Home
           </Link>
@@ -289,7 +298,7 @@ const ProjectDetail = () => {
                 {project.fullDescription}
               </p>
               <div className="flex gap-4">
-                <button className={`px-6 py-3 rounded-lg font-medium bg-gradient-to-r ${project.primaryColor} text-white`}>
+                <button className={`px-6 py-3 rounded-lg font-medium bg-gradient-to-r ${project.primaryColor} text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105`}>
                   Learn More
                 </button>
               </div>
@@ -332,7 +341,7 @@ const ProjectDetail = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`p-6 rounded-lg ${project.lightColor} bg-opacity-5 hover:bg-opacity-10 transition-all duration-300`}
+                className={`p-6 rounded-lg ${project.lightColor} bg-opacity-5 hover:bg-opacity-10 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg`}
               >
                 <h3 className={`text-xl font-semibold mb-3 ${project.accentColor}`}>{feature.title}</h3>
                 <p className="text-gray-300">{feature.description}</p>
@@ -364,7 +373,7 @@ const ProjectDetail = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-theme-dark-bg p-6 rounded-lg"
+                className="bg-theme-dark-bg p-6 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02]"
               >
                 <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, i) => (
@@ -394,7 +403,7 @@ const ProjectDetail = () => {
             <p className="text-white opacity-90 max-w-2xl mx-auto mb-8">
               Join thousands of satisfied users and discover why {project.name} is the preferred choice.
             </p>
-            <button className="px-8 py-4 bg-white text-gray-900 rounded-lg font-bold hover:bg-opacity-90 transition-colors">
+            <button className="px-8 py-4 bg-white text-gray-900 rounded-lg font-bold hover:bg-opacity-90 transition-colors transform hover:scale-105 duration-300 shadow-lg">
               Learn More
             </button>
           </motion.div>
@@ -406,9 +415,9 @@ const ProjectDetail = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold text-white font-display">More Projects</h2>
-            <Link to="/#projects" className="text-theme-accent1 flex items-center hover:text-theme-accent2 transition-colors">
+            <Link to="/#projects" className="text-theme-accent1 flex items-center hover:text-theme-accent2 transition-colors group">
               View All
-              <ChevronRight className="ml-1 h-5 w-5" />
+              <ChevronRight className="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
           
@@ -420,13 +429,13 @@ const ProjectDetail = () => {
                 <Link 
                   key={key} 
                   to={`/project/${key}`}
-                  className="bg-theme-dark-surface rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                  className="bg-theme-dark-surface rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1"
                 >
                   <div className="h-48 overflow-hidden">
                     <img 
                       src={proj.coverImage} 
                       alt={proj.name} 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
                     />
                   </div>
                   <div className="p-4">
