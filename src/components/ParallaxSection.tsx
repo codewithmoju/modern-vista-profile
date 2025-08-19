@@ -6,15 +6,22 @@ interface ParallaxSectionProps {
   className?: string;
   speed?: number;
   direction?: "up" | "down";
+  disabled?: boolean;
 }
 
 const ParallaxSection = ({ 
   children, 
   className = "", 
-  speed = 0.5, 
-  direction = "up" 
+  speed = 0.3, 
+  direction = "up",
+  disabled = false
 }: ParallaxSectionProps) => {
   const ref = useRef<HTMLDivElement>(null);
+  
+  if (disabled) {
+    return <div className={className}>{children}</div>;
+  }
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
@@ -23,13 +30,16 @@ const ParallaxSection = ({
   const y = useTransform(
     scrollYProgress,
     [0, 1],
-    direction === "up" ? [100 * speed, -100 * speed] : [-100 * speed, 100 * speed]
+    direction === "up" ? [50 * speed, -50 * speed] : [-50 * speed, 50 * speed]
   );
 
   return (
     <motion.div
       ref={ref}
-      style={{ y }}
+      style={{ 
+        y,
+        willChange: 'transform'
+      }}
       className={className}
     >
       {children}

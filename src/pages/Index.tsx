@@ -50,25 +50,45 @@ const Index = () => {
       <Header />
       <Hero />
       
-      <ParallaxSection speed={0.5} direction="up">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <About />
-      </ParallaxSection>
+      </motion.div>
       
-      <ParallaxSection speed={0.3} direction="down">
+      <ParallaxSection speed={0.2} direction="up">
         <Projects />
       </ParallaxSection>
       
-      <ParallaxSection speed={0.4} direction="up">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <Experience />
-      </ParallaxSection>
+      </motion.div>
       
-      <ParallaxSection speed={0.6} direction="down">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <Testimonials />
-      </ParallaxSection>
+      </motion.div>
       
-      <ParallaxSection speed={0.2} direction="up">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <Contact />
-      </ParallaxSection>
+      </motion.div>
       
       <footer className="py-6 bg-theme-dark-surface text-center text-gray-400 text-sm">
         <div className="container mx-auto px-4">
