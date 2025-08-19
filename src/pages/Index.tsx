@@ -8,8 +8,6 @@ import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
-import ParallaxSection from "@/components/ParallaxSection";
-import FloatingElements from "@/components/FloatingElements";
 import { updatePageTitle, logPageView } from "@/utils/seo";
 
 const Index = () => {
@@ -45,8 +43,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="bg-theme-dark-bg min-h-screen relative">
-      <FloatingElements />
+    <div className="bg-theme-dark-bg min-h-screen">
       <Header />
       <Hero />
       
@@ -59,9 +56,14 @@ const Index = () => {
         <About />
       </motion.div>
       
-      <ParallaxSection speed={0.2} direction="up">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <Projects />
-      </ParallaxSection>
+      </motion.div>
       
       <motion.div
         initial={{ opacity: 0 }}

@@ -2,8 +2,6 @@
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
 import { Link } from "react-router-dom";
-import ParallaxSection from "./ParallaxSection";
-import mobileDevIllustration from "@/assets/mobile-dev.png";
 
 const Projects = () => {
   const projects = [{
@@ -39,17 +37,8 @@ const Projects = () => {
   }];
 
   return (
-    <section id="projects" className="py-20 gradient-bg relative overflow-hidden">
-      {/* Background Parallax Elements */}
-      <ParallaxSection speed={0.2} direction="up" className="absolute top-0 right-10 w-1/4 h-1/2 opacity-8">
-        <img 
-          src={mobileDevIllustration} 
-          alt="Mobile development" 
-          className="w-full h-full object-contain"
-        />
-      </ParallaxSection>
-      
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="projects" className="py-20 gradient-bg">
+      <div className="container mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0 }} 
           whileInView={{ opacity: 1 }}
@@ -72,14 +61,14 @@ const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-theme-dark-surface rounded-lg shadow-lg overflow-hidden group transition-all duration-500 hover:shadow-xl card-hover-lift"
+              className="bg-theme-dark-surface rounded-lg shadow-lg overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
             >
               {/* Project Image */}
               <div className="relative h-56 overflow-hidden">
                 <img 
                   src={project.imageUrl} 
                   alt={project.title} 
-                  className="w-full h-full object-fill transition-transform duration-1000 group-hover:scale-110" 
+                  className="w-full h-full object-fill transition-transform duration-700 group-hover:scale-110" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>

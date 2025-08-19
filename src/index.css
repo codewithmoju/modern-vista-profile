@@ -68,57 +68,23 @@
   color: transparent;
 }
 
-/* Enhanced parallax and floating animations */
-.parallax-float {
-  animation: parallaxFloat 6s ease-in-out infinite;
-}
-
-@keyframes parallaxFloat {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-10px) rotate(1deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(0deg);
-  }
-  75% {
-    transform: translateY(-10px) rotate(-1deg);
-  }
-}
-
-.glow-on-hover {
-  transition: all 0.3s ease;
-}
-
-.glow-on-hover:hover {
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4), 0 0 40px rgba(139, 92, 246, 0.2), 0 0 60px rgba(139, 92, 246, 0.1);
-  transform: translateY(-2px);
-}
-
-/* Enhanced blob animations */
 @keyframes blob {
   0% {
-    transform: translate(0px, 0px) scale(1) rotate(0deg);
+    transform: translate(0px, 0px) scale(1);
   }
-  25% {
-    transform: translate(30px, -50px) scale(1.1) rotate(90deg);
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
   }
-  50% {
-    transform: translate(-20px, 20px) scale(0.9) rotate(180deg);
-  }
-  75% {
-    transform: translate(50px, 10px) scale(1.05) rotate(270deg);
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
   }
   100% {
-    transform: translate(0px, 0px) scale(1) rotate(360deg);
+    transform: translate(0px, 0px) scale(1);
   }
 }
 
 .animate-blob {
-  animation: blob 15s infinite cubic-bezier(0.4, 0.0, 0.2, 1);
-  will-change: transform;
+  animation: blob 7s infinite;
 }
 
 .animation-delay-2000 {
