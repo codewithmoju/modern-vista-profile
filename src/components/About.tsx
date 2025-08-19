@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { Code2, Smartphone, Server, Leaf, Brain, Users } from "lucide-react";
+import ParallaxSection from "./ParallaxSection";
+import codingEnvironment from "@/assets/coding-environment.png";
+import techStack from "@/assets/tech-stack.png";
 const About = () => {
   // Skills with proficiency levels
   const technicalSkills = [{
@@ -46,8 +49,25 @@ const About = () => {
     title: "Team Collaboration",
     description: "Project Management, Leadership"
   }];
-  return <section id="about" className="py-20 bg-theme-dark-surface">
-      <div className="container mx-auto px-4">
+  return <section id="about" className="py-20 bg-theme-dark-surface relative overflow-hidden">
+      {/* Background Parallax Elements */}
+      <ParallaxSection speed={0.3} direction="up" className="absolute top-10 right-0 w-1/3 h-1/2 opacity-5">
+        <img 
+          src={codingEnvironment} 
+          alt="Coding environment" 
+          className="w-full h-full object-contain"
+        />
+      </ParallaxSection>
+      
+      <ParallaxSection speed={0.4} direction="down" className="absolute bottom-10 left-0 w-1/4 h-1/3 opacity-10">
+        <img 
+          src={techStack} 
+          alt="Technology stack" 
+          className="w-full h-full object-contain"
+        />
+      </ParallaxSection>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div initial={{
         opacity: 0
       }} whileInView={{

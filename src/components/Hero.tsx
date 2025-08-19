@@ -1,15 +1,42 @@
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronRight, Github, Linkedin, Download, ArrowRight, Twitter } from "lucide-react";
+import ParallaxSection from "./ParallaxSection";
+import devWorkspace from "@/assets/dev-workspace.png";
+import mobileDevIllustration from "@/assets/mobile-dev.png";
 
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center gradient-bg relative overflow-hidden pt-20">
       {/* Background decorative elements - enhanced */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob" />
-        <div className="absolute top-40 right-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000" />
-        <div className="absolute bottom-40 left-1/4 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000" />
+        <ParallaxSection speed={0.3} direction="down">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob" />
+        </ParallaxSection>
+        <ParallaxSection speed={0.5} direction="up">
+          <div className="absolute top-40 right-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000" />
+        </ParallaxSection>
+        <ParallaxSection speed={0.2} direction="down">
+          <div className="absolute bottom-40 left-1/4 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000" />
+        </ParallaxSection>
+        
+        {/* Development workspace illustration */}
+        <ParallaxSection speed={0.4} direction="up" className="absolute top-0 right-0 w-1/2 h-full opacity-5">
+          <img 
+            src={devWorkspace} 
+            alt="Development workspace" 
+            className="w-full h-full object-cover"
+          />
+        </ParallaxSection>
+        
+        {/* Mobile development illustration */}
+        <ParallaxSection speed={0.6} direction="down" className="absolute bottom-0 left-0 w-1/3 h-1/2 opacity-10">
+          <img 
+            src={mobileDevIllustration} 
+            alt="Mobile development" 
+            className="w-full h-full object-contain"
+          />
+        </ParallaxSection>
       </div>
 
       <div className="container mx-auto px-4 py-20 relative z-10">

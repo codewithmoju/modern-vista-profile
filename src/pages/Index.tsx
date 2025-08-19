@@ -8,6 +8,8 @@ import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
+import ParallaxSection from "@/components/ParallaxSection";
+import FloatingElements from "@/components/FloatingElements";
 import { updatePageTitle, logPageView } from "@/utils/seo";
 
 const Index = () => {
@@ -43,54 +45,30 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="bg-theme-dark-bg min-h-screen">
+    <div className="bg-theme-dark-bg min-h-screen relative">
+      <FloatingElements />
       <Header />
       <Hero />
       
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
+      <ParallaxSection speed={0.5} direction="up">
         <About />
-      </motion.div>
+      </ParallaxSection>
       
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
+      <ParallaxSection speed={0.3} direction="down">
         <Projects />
-      </motion.div>
+      </ParallaxSection>
       
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
+      <ParallaxSection speed={0.4} direction="up">
         <Experience />
-      </motion.div>
+      </ParallaxSection>
       
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
+      <ParallaxSection speed={0.6} direction="down">
         <Testimonials />
-      </motion.div>
+      </ParallaxSection>
       
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
+      <ParallaxSection speed={0.2} direction="up">
         <Contact />
-      </motion.div>
+      </ParallaxSection>
       
       <footer className="py-6 bg-theme-dark-surface text-center text-gray-400 text-sm">
         <div className="container mx-auto px-4">
