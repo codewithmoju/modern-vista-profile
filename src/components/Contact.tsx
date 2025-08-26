@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle, User, Clock, CheckCircle } from "lucide-react";
 import { useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 
@@ -72,7 +72,7 @@ ${formData.message}
       `;
       
       // Open the default email client
-      window.open(`mailto:muhammadmoaimrmr786@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+      window.open(`mailto:codewithmoju@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
       
       toast({
         title: "Email client opened!",
@@ -84,7 +84,7 @@ ${formData.message}
     } catch (error) {
       toast({
         title: "Something went wrong",
-        description: "Please try again or contact me directly at muhammadmoaimrmr786@gmail.com",
+        description: "Please try again or contact me directly at codewithmoju@gmail.com",
         variant: "destructive"
       });
     } finally {
@@ -93,177 +93,257 @@ ${formData.message}
   };
   
   return (
-    <section id="contact" className="py-20 contact-gradient">
-      <div className="container mx-auto px-4">
-        <motion.h2 
-          initial={{ opacity: 0 }} 
-          whileInView={{ opacity: 1 }}
-          className="text-3xl font-bold mb-12 text-center gradient-text"
-          aria-label="Contact section"
+    <section id="contact" className="py-20 bg-theme-dark-surface relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-20 text-4xl">📧</div>
+        <div className="absolute bottom-20 right-20 text-3xl">📱</div>
+        <div className="absolute top-1/2 right-10 text-2xl">🌐</div>
+        <div className="absolute bottom-1/3 left-10 text-3xl">💬</div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
         >
-          Get In Touch
-        </motion.h2>
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text-pro font-display">
+            Let's Work Together
+          </h2>
+          <p className="text-gray-300 max-w-3xl mx-auto text-lg">
+            Ready to bring your mobile app idea to life? Let's discuss your project and create something amazing together.
+          </p>
+        </motion.div>
+        
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           <motion.div 
-            initial={{ opacity: 0, x: -20 }} 
+            initial={{ opacity: 0, x: -30 }} 
             whileInView={{ opacity: 1, x: 0 }}
-            className="space-y-6"
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
           >
-            <h3 className="text-2xl font-semibold mb-4">Contact Information</h3>
-            <div className="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors transform hover:translate-x-1 duration-300">
-              <Mail className="w-5 h-5 text-theme-accent1" aria-hidden="true" />
-              <a href="mailto:muhammadmoaimrmr786@gmail.com" className="hover:text-theme-accent1 transition-colors">
-                muhammadmoaimrmr786@gmail.com
-              </a>
-            </div>
-            <div className="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors transform hover:translate-x-1 duration-300">
-              <Phone className="w-5 h-5 text-theme-accent1" aria-hidden="true" />
-              <a href="tel:+923019684007" className="hover:text-theme-accent1 transition-colors">
-                +92 301 9684007
-              </a>
-            </div>
-            <div className="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors transform hover:translate-x-1 duration-300">
-              <MapPin className="w-5 h-5 text-theme-accent1" aria-hidden="true" />
-              <span>Lahore, Pakistan</span>
-            </div>
-            
-            <div className="pt-6">
-              <h3 className="text-xl font-semibold mb-4">Connect With Me</h3>
-              <div className="flex space-x-4">
-                <a
-                  href="https://github.com/MuhammadMoaiz001"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-full bg-theme-dark-bg hover:bg-theme-accent1/20 transform hover:scale-110 duration-300"
-                  aria-label="GitHub"
+            <div className="card p-8">
+              <h3 className="text-3xl font-bold mb-6 text-white font-display">Get In Touch</h3>
+              <p className="text-gray-300 mb-8 text-lg leading-relaxed">
+                I'm always excited to discuss new projects and opportunities. Whether you have a specific idea in mind or need consultation on mobile app development, I'd love to hear from you.
+              </p>
+              
+              {/* Contact Methods */}
+              <div className="space-y-6 mb-8">
+                <motion.div 
+                  whileHover={{ scale: 1.02, x: 10 }}
+                  className="flex items-center space-x-4 p-4 bg-brand-secondary/10 rounded-xl hover:bg-brand-secondary/20 transition-all duration-300"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
-                </a>
-                <a
-                  href="https://twitter.com/M_Moaiz001"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-full bg-theme-dark-bg hover:bg-theme-accent1/20 transform hover:scale-110 duration-300"
-                  aria-label="X (Twitter)"
+                  <div className="bg-brand-secondary p-3 rounded-full">
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400">Email</p>
+                    <a href="mailto:codewithmoju@gmail.com" className="text-white font-medium hover:text-brand-secondary transition-colors">
+                      codewithmoju@gmail.com
+                    </a>
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.02, x: 10 }}
+                  className="flex items-center space-x-4 p-4 bg-brand-accent/10 rounded-xl hover:bg-brand-accent/20 transition-all duration-300"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                  </svg>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/muhammadmoaiz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors p-2 rounded-full bg-theme-dark-bg hover:bg-theme-accent1/20 transform hover:scale-110 duration-300"
-                  aria-label="LinkedIn"
+                  <div className="bg-brand-accent p-3 rounded-full">
+                    <Phone className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400">Phone</p>
+                    <a href="tel:+923019684007" className="text-white font-medium hover:text-brand-accent transition-colors">
+                      +92 301 9684007
+                    </a>
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  whileHover={{ scale: 1.02, x: 10 }}
+                  className="flex items-center space-x-4 p-4 bg-brand-highlight/10 rounded-xl hover:bg-brand-highlight/20 transition-all duration-300"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <div className="bg-brand-highlight p-3 rounded-full">
+                    <MapPin className="w-6 h-6 text-black" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-400">Location</p>
+                    <span className="text-white font-medium">Lahore, Pakistan</span>
+                  </div>
+                </motion.div>
+              </div>
+              
+              {/* Social Links */}
+              <div>
+                <h4 className="text-xl font-semibold mb-4 text-white">Connect With Me</h4>
+                <div className="flex space-x-4">
+                  <motion.a
+                    href="https://github.com/codewithmoju"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="p-3 bg-gray-800 hover:bg-brand-secondary rounded-full transition-colors duration-300 group"
+                    aria-label="GitHub"
                   >
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
-                </a>
+                    <svg className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </motion.a>
+                  
+                  <motion.a
+                    href="https://x.com/codewithmoju"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="p-3 bg-gray-800 hover:bg-blue-500 rounded-full transition-colors duration-300 group"
+                    aria-label="X (Twitter)"
+                  >
+                    <svg className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </motion.a>
+                  
+                  <motion.a
+                    href="https://www.linkedin.com/in/codewithmoju/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="p-3 bg-gray-800 hover:bg-blue-600 rounded-full transition-colors duration-300 group"
+                    aria-label="LinkedIn"
+                  >
+                    <svg className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </motion.a>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="card p-6 text-center">
+                <div className="text-2xl font-bold text-brand-secondary mb-1">24h</div>
+                <div className="text-sm text-gray-400">Response Time</div>
+              </div>
+              <div className="card p-6 text-center">
+                <div className="text-2xl font-bold text-brand-accent mb-1">100%</div>
+                <div className="text-sm text-gray-400">Client Satisfaction</div>
               </div>
             </div>
           </motion.div>
 
-          <motion.form 
-            initial={{ opacity: 0, x: 20 }} 
+          <motion.div
+            initial={{ opacity: 0, x: 30 }} 
             whileInView={{ opacity: 1, x: 0 }}
-            onSubmit={handleSubmit} 
-            className="space-y-4"
-            aria-label="Contact form"
+            transition={{ duration: 0.6 }}
+            className="card p-8"
           >
-            <div>
-              <label htmlFor="name" className="text-sm text-gray-300 mb-1 block">Your Name</label>
-              <input 
-                type="text" 
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="John Doe" 
-                required
-                className={`w-full p-3 rounded-lg bg-theme-dark-surface border ${errors.name ? 'border-red-500' : 'border-gray-700'} focus:border-theme-accent1 focus:outline-none text-gray-300 transition-all duration-300`}
-                aria-required="true"
-              />
-              {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
-            </div>
-            <div>
-              <label htmlFor="email" className="text-sm text-gray-300 mb-1 block">Your Email</label>
-              <input 
-                type="email" 
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="john@example.com" 
-                required
-                className={`w-full p-3 rounded-lg bg-theme-dark-surface border ${errors.email ? 'border-red-500' : 'border-gray-700'} focus:border-theme-accent1 focus:outline-none text-gray-300 transition-all duration-300`}
-                aria-required="true"
-              />
-              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
-            </div>
-            <div>
-              <label htmlFor="message" className="text-sm text-gray-300 mb-1 block">Your Message</label>
-              <textarea 
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Hello! I'd like to discuss a project..." 
-                rows={4} 
-                required
-                className={`w-full p-3 rounded-lg bg-theme-dark-surface border ${errors.message ? 'border-red-500' : 'border-gray-700'} focus:border-theme-accent1 focus:outline-none text-gray-300 transition-all duration-300`}
-                aria-required="true"
-              ></textarea>
-              {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
-            </div>
-            <div className="text-sm text-gray-400 mb-4">
-              <p>Clicking "Send Message" will open your default email client with your message pre-filled.</p>
-            </div>
-            <button 
-              type="submit" 
-              disabled={isSubmitting}
-              className="flex items-center justify-center space-x-2 w-full bg-theme-accent1 hover:bg-opacity-90 text-white px-6 py-3 rounded-lg transition-all disabled:opacity-70 hover:shadow-lg transform hover:scale-[1.02] duration-300"
-              aria-label="Send message"
-            >
-              <span>{isSubmitting ? "Opening Email Client..." : "Send Message"}</span>
-              <Send className="w-4 h-4" aria-hidden="true" />
-            </button>
-          </motion.form>
+            <h3 className="text-3xl font-bold mb-6 text-white font-display">Send a Message</h3>
+            <p className="text-gray-300 mb-8">
+              Fill out the form below and I'll get back to you within 24 hours.
+            </p>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="text-sm font-medium text-gray-300 mb-2 block">
+                  Full Name *
+                </label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input 
+                    type="text" 
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your full name" 
+                    required
+                    className={`w-full pl-12 pr-4 py-4 rounded-xl bg-gray-800/50 border ${
+                      errors.name ? 'border-red-500' : 'border-gray-700'
+                    } focus:border-brand-secondary focus:outline-none text-white transition-all duration-300 hover:bg-gray-800/70`}
+                  />
+                </div>
+                {errors.name && <p className="text-red-400 text-sm mt-2">{errors.name}</p>}
+              </div>
+
+              <div>
+                <label htmlFor="email" className="text-sm font-medium text-gray-300 mb-2 block">
+                  Email Address *
+                </label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <input 
+                    type="email" 
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your.email@example.com" 
+                    required
+                    className={`w-full pl-12 pr-4 py-4 rounded-xl bg-gray-800/50 border ${
+                      errors.email ? 'border-red-500' : 'border-gray-700'
+                    } focus:border-brand-secondary focus:outline-none text-white transition-all duration-300 hover:bg-gray-800/70`}
+                  />
+                </div>
+                {errors.email && <p className="text-red-400 text-sm mt-2">{errors.email}</p>}
+              </div>
+
+              <div>
+                <label htmlFor="message" className="text-sm font-medium text-gray-300 mb-2 block">
+                  Project Details *
+                </label>
+                <div className="relative">
+                  <MessageCircle className="absolute left-3 top-4 w-5 h-5 text-gray-400" />
+                  <textarea 
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell me about your project idea, requirements, timeline, and budget..." 
+                    rows={6} 
+                    required
+                    className={`w-full pl-12 pr-4 py-4 rounded-xl bg-gray-800/50 border ${
+                      errors.message ? 'border-red-500' : 'border-gray-700'
+                    } focus:border-brand-secondary focus:outline-none text-white transition-all duration-300 hover:bg-gray-800/70 resize-none`}
+                  />
+                </div>
+                {errors.message && <p className="text-red-400 text-sm mt-2">{errors.message}</p>}
+              </div>
+
+              <div className="bg-brand-secondary/10 p-4 rounded-xl border border-brand-secondary/20">
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-brand-secondary mt-0.5" />
+                  <div className="text-sm text-gray-300">
+                    <p className="font-medium mb-1">What happens next?</p>
+                    <ul className="space-y-1 text-gray-400">
+                      <li>• I'll review your project details</li>
+                      <li>• Get back to you within 24 hours</li>
+                      <li>• Schedule a free consultation call</li>
+                      <li>• Provide project timeline and quote</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <motion.button 
+                type="submit" 
+                disabled={isSubmitting}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-gradient-to-r from-brand-secondary to-brand-accent text-white px-8 py-4 rounded-xl font-semibold transition-all disabled:opacity-70 hover:shadow-lg hover:shadow-brand-secondary/25 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+              >
+                <span>{isSubmitting ? "Sending Message..." : "Send Message"}</span>
+                <Send className="w-5 h-5" />
+              </motion.button>
+
+              <p className="text-xs text-gray-400 text-center">
+                By sending this message, you agree to discuss your project with me. 
+                Your information will be kept confidential.
+              </p>
+            </form>
+          </motion.div>
         </div>
       </div>
     </section>

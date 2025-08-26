@@ -39,7 +39,7 @@ const Header = () => {
           className="text-xl md:text-2xl font-bold gradient-text font-display"
         >
           <a href="#" className="flex items-center gap-2">
-            <span className="text-2xl md:text-3xl font-display">Muhammad Moaiz</span>
+            <span className="text-2xl md:text-3xl font-display">CodewithMoju</span>
           </a>
         </motion.div>
 
@@ -71,35 +71,35 @@ const Header = () => {
         {/* Social Icons */}
         <div className="hidden md:flex space-x-4">
           <a
-            href="https://github.com/MuhammadMoaiz001"
+            href="https://github.com/codewithmoju"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition-colors hover:scale-110 duration-300"
+            className="text-gray-400 hover:text-white transition-colors hover:scale-110 duration-300 icon-hover-ring p-2"
             aria-label="GitHub Profile"
           >
             <Github size={20} />
           </a>
           <a
-            href="https://twitter.com/M_Moaiz001"
+            href="https://x.com/codewithmoju"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition-colors hover:scale-110 duration-300"
+            className="text-gray-400 hover:text-white transition-colors hover:scale-110 duration-300 icon-hover-ring p-2"
             aria-label="X (Twitter) Profile"
           >
             <Twitter size={20} />
           </a>
           <a
-            href="https://www.linkedin.com/in/muhammadmoaiz"
+            href="https://www.linkedin.com/in/codewithmoju/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition-colors hover:scale-110 duration-300"
+            className="text-gray-400 hover:text-white transition-colors hover:scale-110 duration-300 icon-hover-ring p-2"
             aria-label="LinkedIn Profile"
           >
             <Linkedin size={20} />
           </a>
           <a
-            href="mailto:muhammadmoaimrmr786@gmail.com"
-            className="text-gray-400 hover:text-white transition-colors hover:scale-110 duration-300"
+            href="mailto:codewithmoju@gmail.com"
+            className="text-gray-400 hover:text-white transition-colors hover:scale-110 duration-300 icon-hover-ring p-2"
             aria-label="Email Me"
           >
             <Mail size={20} />
@@ -156,7 +156,7 @@ const Header = () => {
                   <Linkedin size={24} />
                 </a>
                 <a
-                  href="mailto:muhammadmoaimrmr786@gmail.com"
+                  href="mailto:codewithmoju@gmail.com"
                   className="text-gray-400 hover:text-white transition-colors"
                   aria-label="Email Me"
                 >
